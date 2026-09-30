@@ -1,6 +1,36 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+.vite/
+
+# TypeScript
 *.tsbuildinfo
 *.d.ts
-Git-2.56.0-64-bit.exe
+
+# Git installation accidentally stored in project
 Git/
+Git-2.56.0-64-bit.exe
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.parcel-cache/
