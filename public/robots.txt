@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://typingpractice-tm.netlify.app/sitemap.xml
