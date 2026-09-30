@@ -1,0 +1,26 @@
+import { educationalPassages, type PassageSeed } from '../shared'
+
+const rows: PassageSeed[] = [
+  { title: 'Create a small HTTP server', content: 'const http = require("http");\nconst server = http.createServer((req, res) => {\n  res.end("Hello World");\n});\nserver.listen(3000);', difficulty: 'Beginner', learningPoint: 'Node.js can create HTTP servers with its built-in http module.' },
+  { title: 'Read a file asynchronously', content: 'const { readFile } = require("node:fs/promises");\nconst text = await readFile("notes.txt", "utf8");', difficulty: 'Easy', learningPoint: 'Promise-based file APIs avoid blocking the event loop while waiting for I/O.' },
+  { title: 'Read an environment variable', content: 'const port = Number(process.env.PORT ?? 3000);\nserver.listen(port);', difficulty: 'Beginner', learningPoint: 'Environment variables let deployment configuration stay outside source code.' },
+  { title: 'Join a safe file path', content: 'const path = require("node:path");\nconst file = path.join(process.cwd(), "data", "users.json");', difficulty: 'Easy', learningPoint: 'The path module handles platform-specific path separators.' },
+  { title: 'Listen for an event', content: 'const { EventEmitter } = require("node:events");\nconst bus = new EventEmitter();\nbus.on("ready", () => console.log("Ready"));', difficulty: 'Medium', learningPoint: 'Event emitters let one part of a program react to named events.' },
+  { title: 'Handle a request failure', content: 'try {\n  await saveRecord(record);\n} catch (error) {\n  console.error("Save failed", error);\n}', difficulty: 'Medium', learningPoint: 'Handling rejected promises prevents failures from going unnoticed.' },
+  { title: 'Stream a large file', content: 'const { createReadStream } = require("node:fs");\ncreateReadStream("archive.log").pipe(response);', difficulty: 'Hard', learningPoint: 'Streams process chunks so large files need not be loaded into memory all at once.' },
+  { title: 'Export a helper', content: 'function formatName(user) {\n  return `${user.first} ${user.last}`;\n}\nmodule.exports = { formatName };', difficulty: 'Hard', learningPoint: 'A module exports a deliberate interface for other files to use.' },
+  { title: 'Close a server cleanly', content: 'process.on("SIGTERM", () => {\n  server.close(() => process.exit(0));\n});', difficulty: 'Expert', learningPoint: 'Graceful shutdown gives active connections a chance to finish.' },
+  { title: 'Limit concurrent tasks', content: 'const results = await Promise.allSettled(tasks.map(runTask));', difficulty: 'Expert', learningPoint: 'allSettled waits for every promise and reports each success or failure.' },
+  { title: 'Read request method', content: 'if (request.method === "GET") {\n  response.end("Read only");\n}', difficulty: 'Beginner', learningPoint: 'HTTP methods communicate the intended operation for a request.' },
+  { title: 'Return a status code', content: 'response.writeHead(404, { "Content-Type": "text/plain" });\nresponse.end("Not found");', difficulty: 'Beginner', learningPoint: 'An HTTP status code communicates the outcome to a client.' },
+  { title: 'Parse a URL', content: 'const url = new URL(request.url, `http://${request.headers.host}`);\nconst page = url.pathname;', difficulty: 'Easy', learningPoint: 'The URL class separates a request address into path, query, and origin.' },
+  { title: 'Use a promise pipeline', content: 'readFile(path, "utf8")\n  .then(parseConfig)\n  .catch(reportFailure);', difficulty: 'Easy', learningPoint: 'Promise handlers connect asynchronous results and failure paths.' },
+  { title: 'Serve a JSON response', content: 'response.writeHead(200, { "Content-Type": "application/json" });\nresponse.end(JSON.stringify(data));', difficulty: 'Medium', learningPoint: 'A content type tells the client how to interpret the response body.' },
+  { title: 'Avoid blocking the event loop', content: 'const digest = await promisify(crypto.pbkdf2)(password, salt, 120000, 32, "sha256");', difficulty: 'Medium', learningPoint: 'Asynchronous APIs let Node.js serve other work while operations complete.' },
+  { title: 'Validate a request body', content: 'if (typeof body.email !== "string") {\n  throw new TypeError("Email is required");\n}', difficulty: 'Hard', learningPoint: 'Validate external input at the boundary before trusting its shape.' },
+  { title: 'Use a worker thread', content: 'const worker = new Worker("./calculate.js", { workerData: input });', difficulty: 'Hard', learningPoint: 'Worker threads can move CPU-heavy JavaScript away from the main event loop.' },
+  { title: 'Handle stream backpressure', content: 'if (!readable.pipe(writable)) {\n  readable.pause();\n  writable.once("drain", () => readable.resume());\n}', difficulty: 'Expert', learningPoint: 'Backpressure prevents a fast producer from overwhelming a slower consumer.' },
+  { title: 'Use a stable process signal', content: 'process.on("SIGINT", () => {\n  server.close(() => process.exit(0));\n});', difficulty: 'Expert', learningPoint: 'A graceful shutdown closes the server before the process exits.' },
+]
+
+export const nodejsPassages = educationalPassages('Programming', rows, 'Node.js')

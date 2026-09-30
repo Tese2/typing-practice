@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.tsbuildinfo
+*.d.ts
+Git-2.56.0-64-bit.exe
+Git/

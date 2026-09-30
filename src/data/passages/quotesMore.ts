@@ -1,0 +1,31 @@
+import { educationalPassages, type PassageSeed } from './shared'
+
+const rows: PassageSeed[] = [
+  { title: 'Make the next step clear', content: 'A plan becomes useful when its next action is small enough to begin.', difficulty: 'Beginner', learningPoint: 'Clear first actions lower the effort required to start.' },
+  { title: 'Evidence before certainty', content: 'Confidence is strongest when it can explain the evidence that changed its mind.', difficulty: 'Easy', learningPoint: 'Good reasoning stays open to new, relevant evidence.' },
+  { title: 'Protect attention', content: 'Attention is limited; give the important work a place where interruptions are less likely.', difficulty: 'Medium', learningPoint: 'Reducing interruptions can preserve time for focused work.' },
+  { title: 'Practice what matters', content: 'Repetition helps most when each attempt has a purpose and a chance to improve.', difficulty: 'Hard', learningPoint: 'Deliberate practice pairs repetition with feedback.' },
+  { title: 'Make room for questions', content: 'A careful question can improve a decision before anyone spends effort defending it.', difficulty: 'Expert', learningPoint: 'Questions can reveal assumptions while choices are still flexible.' },
+  { title: 'Use time with care', content: 'A calendar shows where time went; reflection helps decide where it should go next.', difficulty: 'Beginner', learningPoint: 'Reviewing past commitments helps plan realistic future work.' },
+  { title: 'Keep promises visible', content: 'A small written reminder can protect a promise from being lost in a busy day.', difficulty: 'Easy', learningPoint: 'External reminders reduce the memory burden of follow-up.' },
+  { title: 'Listen for meaning', content: 'Listen for the need beneath the words, then check that your interpretation is fair.', difficulty: 'Medium', learningPoint: 'Checking an interpretation prevents assumptions from replacing listening.' },
+  { title: 'Separate urgency from value', content: 'The loudest request is not always the most important; compare its impact with other work.', difficulty: 'Hard', learningPoint: 'Prioritization considers consequences, not only pressure.' },
+  { title: 'Let a draft be a draft', content: 'A first version gives an idea a shape that can be tested, revised, and improved.', difficulty: 'Expert', learningPoint: 'Drafting and revision are different stages of useful writing.' },
+  { title: 'Measure before adjusting', content: 'A meaningful baseline makes it easier to see whether a change actually helped.', difficulty: 'Beginner', learningPoint: 'A baseline gives later comparisons a reference point.' },
+  { title: 'Welcome a second view', content: 'Another perspective can reveal a blind spot that careful effort alone could not see.', difficulty: 'Easy', learningPoint: 'Constructive review adds information that an author may miss.' },
+  { title: 'Choose plain language', content: 'Simple words make a useful idea easier to understand, share, and put into practice.', difficulty: 'Medium', learningPoint: 'Plain language improves access without reducing the quality of an idea.' },
+  { title: 'Leave a helpful record', content: 'Write down the decision and its reason so future work can continue without guessing.', difficulty: 'Hard', learningPoint: 'Decision records preserve context for people who were not present.' },
+  { title: 'Build trust steadily', content: 'Trust grows when small commitments are clear, realistic, and followed through.', difficulty: 'Expert', learningPoint: 'Consistent follow-through makes reliability observable.' },
+  { title: 'Pause before sharing', content: 'A short pause can separate a surprising claim from a claim worth repeating.', difficulty: 'Beginner', learningPoint: 'Verification before sharing slows the spread of false information.' },
+  { title: 'Make feedback specific', content: 'A useful suggestion names an observable change and explains what it would improve.', difficulty: 'Easy', learningPoint: 'Specific feedback gives someone a practical action to try.' },
+  { title: 'Respect a boundary', content: 'A clear boundary explains what is possible, what is not, and when to revisit the request.', difficulty: 'Medium', learningPoint: 'Boundaries are easier to respect when they include practical alternatives.' },
+  { title: 'Keep learning visible', content: 'Notice what you can do now that felt difficult before, and use that evidence to choose the next challenge.', difficulty: 'Hard', learningPoint: 'Reflection helps match the next goal to current ability.' },
+  { title: 'Make a decision reversible', content: 'When uncertainty is high, a small reversible test can provide evidence before a larger commitment.', difficulty: 'Expert', learningPoint: 'Low-cost experiments preserve options while reducing uncertainty.' },
+  { title: 'Value a quiet correction', content: 'Changing an answer after learning more is a sign that attention followed the evidence.', difficulty: 'Beginner', learningPoint: 'Updating a belief can be a strength when new evidence supports it.' },
+  { title: 'Finish with a handoff', content: 'A good handoff gives the next person enough context to continue without starting over.', difficulty: 'Easy', learningPoint: 'Context makes shared work continuous across people and time.' },
+  { title: 'Make rest part of the plan', content: 'Recovery is not time stolen from work; it helps make sustained attention possible.', difficulty: 'Medium', learningPoint: 'Rest supports continued cognitive and physical performance.' },
+  { title: 'Check the hidden assumption', content: 'A plan may depend on a quiet assumption; naming it makes the risk easier to test.', difficulty: 'Hard', learningPoint: 'Explicit assumptions can be reviewed before they become surprises.' },
+  { title: 'Share credit fairly', content: 'Acknowledge the people and sources that helped an idea become useful.', difficulty: 'Expert', learningPoint: 'Attribution recognizes contributions and helps others trace the work.' },
+]
+
+export const quoteMorePassages = educationalPassages('Quotes', rows)

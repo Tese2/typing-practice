@@ -1,0 +1,9 @@
+import { BookOpenText, Languages, Star } from 'lucide-react'
+import type { TypingPassage } from '../types/typing'
+import { LearningPoint } from './LearningPoint'
+
+interface PassagePreviewProps { passage: TypingPassage; favorite?: boolean; onToggleFavorite?: () => void }
+
+export function PassagePreview({ passage, favorite = false, onToggleFavorite }: PassagePreviewProps) {
+  return <section className="passage-preview" aria-labelledby="preview-title"><div className="preview-topline"><span className="section-kicker">YOUR NEXT TEXT</span><div className="preview-actions"><span className="preview-category">{passage.category}</span>{onToggleFavorite && <button className={`favorite-button ${favorite ? 'is-favorite' : ''}`} onClick={onToggleFavorite} aria-pressed={favorite} aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'} title={favorite ? 'Remove from favorites' : 'Add to favorites'}><Star size={16} fill={favorite ? 'currentColor' : 'none'}/><span>{favorite ? 'Favorited' : 'Favorite'}</span></button>}</div></div><h3 id="preview-title">{passage.title}</h3>{passage.description && <p className="preview-description">{passage.description}</p>}<div className="preview-facts"><span><strong>Level</strong>{passage.difficulty}</span><span><strong>{passage.category === 'Programming' ? <><Languages size={13}/> Language</> : <><BookOpenText size={13}/> Category</>}</strong>{passage.language === 'English' ? passage.category : passage.language}</span><span><strong>Length</strong>{passage.wordCount} words</span></div><LearningPoint>{passage.learningPoint}</LearningPoint></section>
+}

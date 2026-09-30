@@ -1,0 +1,21 @@
+import { ArrowDownRight, ArrowRight, BookOpen, ChartNoAxesColumnIncreasing, Clock3, Crosshair, Keyboard, Sparkles } from 'lucide-react'
+import type { TestResult } from '../types/typing'
+import { categories, getCategoryCounts } from '../data/passages/index'
+import { StatCard } from '../components/StatCard'
+
+interface HomeProps { navigate: (path: string) => void; history: TestResult[] }
+
+export function Home({ navigate, history }: HomeProps) {
+  const categoryCounts = getCategoryCounts()
+  const bestWpm = Math.max(0, ...history.map((result) => result.wpm))
+  const averageAccuracy = history.length ? Math.round(history.reduce((sum, result) => sum + result.accuracy, 0) / history.length) : 100
+  return <>
+    <section className="home-hero">
+      <div className="hero-copy"><div className="eyebrow"><span className="eyebrow-dot" /> YOUR DAILY MOMENT OF FOCUS</div><h1>Find your<br /><em>flow state.</em></h1><p>A quieter kind of typing practice. Build speed, keep your accuracy, and let the small wins add up.</p><button className="button button-dark hero-button" onClick={() => navigate('/practice')}>Start practicing <ArrowRight size={17} /></button><div className="hero-footnote"><span><Clock3 size={14} /> No sign-up, ever</span><span>Scroll to explore <ArrowDownRight size={14} /></span></div></div>
+      <div className="hero-art" aria-label="Illustration of a keyboard and typing progress"><div className="art-topline"><span>DAILY PRACTICE</span><span>✳ &nbsp;01 / 08</span></div><div className="art-note note-one">steady<br />is speedy</div><div className="art-note note-two">home<br />row</div><div className="key-board" aria-hidden="true"><div className="key-row"><i>Q</i><i>W</i><i>E</i><i>R</i><i>T</i><i>Y</i><i>U</i><i>I</i><i>O</i><i>P</i></div><div className="key-row offset"><i>A</i><i>S</i><i className="key-highlight">D</i><i>F</i><i>G</i><i>H</i><i className="key-highlight">J</i><i>K</i><i>L</i></div><div className="key-row"><i>Z</i><i>X</i><i>C</i><i>V</i><i className="space-key">SPACE</i><i>B</i><i>N</i><i>M</i></div></div><div className="art-caption"><span className="art-wave">〰</span><span>MAKE ROOM TO IMPROVE</span><span className="art-score">{bestWpm ? `${bestWpm} WPM` : 'YOUR PACE'}</span></div><div className="art-stamp"><Keyboard size={17} /><span>KEYS<br />TO GROW</span></div></div>
+    </section>
+    <section className="home-metrics" aria-label="Your typing summary"><div className="metrics-intro"><span className="section-kicker">YOUR PRACTICE, AT A GLANCE</span><h2>Good things<br />take repetition.</h2></div><StatCard label="Best speed" value={bestWpm || '—'} note={history.length ? 'WPM, personal best' : 'Ready when you are'} icon={<ChartNoAxesColumnIncreasing size={18} />} accent="lime"/><StatCard label="Accuracy" value={`${averageAccuracy}%`} note={history.length ? 'average across tests' : 'A fresh start'} icon={<Crosshair size={18} />} accent="peach"/><StatCard label="Sessions" value={history.length} note="practice rounds" icon={<Sparkles size={18} />} accent="blue"/></section>
+    <section className="category-section"><div className="section-heading"><div><span className="section-kicker">A PASSAGE FOR EVERY MOOD</span><h2>Pick a direction.</h2></div><button className="text-button" onClick={() => navigate('/practice')}>Explore practice <ArrowRight size={15} /></button></div><div className="category-grid">{categories.map((category, index) => <button key={category} className={`category-tile tile-${index}`} onClick={() => navigate(`/practice?category=${encodeURIComponent(category)}`)}><span className="category-index">0{index + 1}</span><span className="category-copy"><strong>{category}</strong><small>{categoryCounts[category]} texts</small></span><span className="category-arrow"><ArrowRight size={16} /></span></button>)}</div></section>
+    <section className="home-bottom"><div className="bottom-icon"><BookOpen size={22} /></div><div><span className="section-kicker">A LITTLE STRUCTURE GOES A LONG WAY</span><h2>Build the basics, one lesson at a time.</h2><p>Short guided drills for home row, numbers, symbols, and code.</p></div><button className="button button-outline" onClick={() => navigate('/lessons')}>Browse lessons <ArrowRight size={16} /></button></section>
+  </>
+}

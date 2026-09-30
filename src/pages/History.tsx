@@ -1,0 +1,13 @@
+import { ArrowUpRight, Clock3, RotateCcw, Trash2 } from 'lucide-react'
+import type { TestResult } from '../types/typing'
+
+interface HistoryProps { history: TestResult[]; onView: (result: TestResult) => void; onPracticeResult: (result: TestResult) => void; onDelete: (id: string) => void; onClear: () => void; onPractice: () => void }
+
+function dateLabel(value: string) { return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(value)) }
+
+export function History({ history, onView, onPracticeResult, onDelete, onClear, onPractice }: HistoryProps) {
+  return <main className="page-main data-page"><div className="page-heading compact-heading"><span className="section-kicker">YOUR LOCAL PRACTICE LOG</span><h1>Every session <em>counts.</em></h1><p>A record of the time you set aside to get a little better.</p></div>
+    <div className="data-toolbar"><span>{history.length} {history.length === 1 ? 'session' : 'sessions'}</span>{history.length > 0 && <button className="text-button danger-link" onClick={onClear}><Trash2 size={15}/> Clear all history</button>}</div>
+    {history.length === 0 ? <div className="empty-state"><div className="empty-icon"><Clock3 size={22}/></div><h2>Your story starts with one session.</h2><p>Complete a typing test and it will be saved here, just for you.</p><button className="button button-green" onClick={onPractice}>Start practicing <ArrowUpRight size={15}/></button></div> : <div className="table-scroll"><table className="history-table"><thead><tr><th>Date</th><th>Speed</th><th>Accuracy</th><th>Difficulty</th><th>Category</th><th><span className="sr-only">Actions</span></th></tr></thead><tbody>{history.map((result) => <tr key={result.id}><td><button className="history-date" onClick={() => onView(result)}>{dateLabel(result.date)}<ArrowUpRight size={13}/></button><small>{result.passageTitle}</small></td><td className="table-wpm">{result.wpm}<small> WPM</small></td><td>{result.accuracy}%</td><td><span className="difficulty-tag">{result.difficulty}</span></td><td>{result.category}</td><td><div className="history-actions"><button className="text-button" onClick={() => onView(result)}>View result</button><button className="icon-button" aria-label={`Practice ${result.passageTitle} again`} title="Practice again" onClick={() => onPracticeResult(result)}><RotateCcw size={14}/></button><button className="icon-button delete-button" aria-label={`Delete session from ${dateLabel(result.date)}`} title="Delete session" onClick={() => onDelete(result.id)}><Trash2 size={15}/></button></div></td></tr>)}</tbody></table></div>}
+  </main>
+}
