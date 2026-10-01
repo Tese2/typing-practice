@@ -104,3 +104,44 @@ typing-practice/
 ## 📄 License
 
 This project is for learning and development purposes.
+# Typing Practice Desktop App
+
+A Windows desktop application for improving typing speed, accuracy, and programming-related typing skills.
+
+## Features
+
+* ⌨️ Typing practice exercises
+* 💻 Programming language practice
+* 📊 Statistics and performance tracking
+* 📜 Typing history
+* 🎯 Easy, Medium, and Hard levels
+* 🖥️ Windows desktop application
+* 🚀 Built with React, TypeScript, Vite, and Electron
+
+## Installation
+
+1. Download **Typing Practice Setup.exe**
+2. Run the installer.
+3. Follow the installation instructions.
+4. Launch **Typing Practice** from the Start Menu or desktop shortcut.
+
+## Technology
+
+* React
+* TypeScript
+* Vite
+* Electron
+* Electron Builder
+
+## Developer
+
+**Tese Mele**
+
+GitHub: https://github.com/Tese2/typing-practice
+
+Web Version: https://typingpractice-tm.netlify.app/
+
+## License
+
+For educational and personal use.
+
