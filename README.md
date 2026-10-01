@@ -118,9 +118,15 @@ A Windows desktop application for improving typing speed, accuracy, and programm
 * 🖥️ Windows desktop application
 * 🚀 Built with React, TypeScript, Vite, and Electron
 
-## Installation
+## 🖥️ Desktop Download
 
-1. Download **Typing Practice Setup.exe**
+Download the latest Windows installer directly from this repository:
+
+**[⬇️ Download Typing Practice for Windows](./downloads/Typing-Practice-Setup-1.0.0.exe)**
+
+### Installation
+
+1. Download **Typing-Practice-Setup-1.0.0.exe**
 2. Run the installer.
 3. Follow the installation instructions.
 4. Launch **Typing Practice** from the Start Menu or desktop shortcut.
@@ -144,4 +150,5 @@ Web Version: https://typingpractice-tm.netlify.app/
 ## License
 
 For educational and personal use.
+
 
